@@ -1,0 +1,43 @@
+include ./paginator.mixin.jade
+
+mixin eventImageLink(e)
+    a(href=e.external ? e.external : ('/events/' + e.slug), style=e.background(0.5), target=e.external ? '_blank' : null)
+        span
+            | #{e.title}
+            br
+            | #{e._.date.format('YYYY/MM/DD')}
+extends layout
+
+block content
+    //- div: .container
+
+    .section-page.section-features: .container
+        h1.tec-heading 創創中心活動
+        //- .pure-g
+            each f in featured
+                .pure-u-1.pure-u-sm-1-3.event-circle: article
+                    +eventImageLink(f)
+
+    .section-page.section-upcoming: .container
+        h2.tec-heading 即將開始
+        .pure-g
+            each e in upcomingEvents
+                .pure-u-1.pure-u-sm-1-2: .event-rect
+                    +eventImageLink(e)
+
+    .section-page.section-pasts: .container
+        h2.tec-heading 過往活動
+        .pure-g
+            each e in pastEvents.results
+                .pure-u-1.pure-u-sm-1-2: .event-rect
+                    +eventImageLink(e)
+                    if e.brief && e.brief.length
+                        p= e.brief
+        if pastEvents.pages.length > 1
+            br
+            +paginator(pastEvents, '/events')
+
+block stylesheets
+    | <style type="text/css">
+    include:less(compress=true) ../public/stylesheets/events.less
+    | </style>

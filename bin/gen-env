@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+
+fs.exists('.env', function (exists) {
+    if (exists) return console.log('.env file found.');
+    fs.writeFile('.env', 'MONGO_URL=', 'utf8', function (err) {
+        if (err) console.err(err);
+        else console.log('.env file generated. Remember to override variables in the file.');
+    });
+});

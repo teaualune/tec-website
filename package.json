@@ -1,0 +1,34 @@
+{
+  "name": "tec-website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "deploy": "node ./bin/www -p",
+    "postinstall": "node ./bin/gen-env"
+  },
+  "dependencies": {
+    "async": "^1.4.2",
+    "body-parser": "~1.13.2",
+    "classnames": "^2.1.3",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "dotenv": "^1.2.0",
+    "express": "~4.13.1",
+    "image-map-resizer": "^0.5.4",
+    "jade": "~1.11.0",
+    "jstransformer-less": "^1.0.0",
+    "jstransformer-uglify-js": "^0.0.4",
+    "keystone": "^0.3.14",
+    "less-middleware": "1.0.x",
+    "less": "~1.7.5",
+    "lesshat": "^3.0.2",
+    "lodash": "^3.10.1",
+    "morgan": "~1.6.1",
+    "helmet": "~0.10.0",
+    "purecss": "^0.6.0",
+    "serve-favicon": "~2.3.0",
+    "validator": "^3.33.0",
+    "yargs": "^3.3.1"
+  }
+}

@@ -1,0 +1,12 @@
+mixin column(c)
+    - var href = '/columns/' + c.slug;
+    .column
+        h1: a(href=href)= c.title
+        .pure-g
+            .pure-u-1.pure-u-sm-7-12.column-brief
+                p= c._.date.format('YYYY/MM/DD')
+                p 文/ #{c.author}
+                p= c.brief
+            .pure-u-1.pure-u-sm-5-12.column-img
+                img(src=c.imgSrc(0.5), style=c.objectPosition())
+        .column-link: a.hollow-button(href=href) read more

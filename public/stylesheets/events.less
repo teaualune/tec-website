@@ -1,0 +1,105 @@
+@import "./variables.less";
+
+@text-shadow: 0 0 1px @green, 0 0 3px lighten(@green, 6%), 0 0 5px darken(@green, 12%);
+
+@text-shadow2: 0 0 1px @light-black, 0 0 3px lighten(@light-black, 6%), 0 0 5px darken(@light-black, 12%);
+
+.tec-heading {
+    margin: 0 0 2em;
+}
+
+/*
+.event-circle {
+    padding: @gutter / 4;
+
+    @media @sm {
+        padding: @gutter / 2;
+    }
+
+    @media @md {
+        padding: @gutter;
+    }
+
+    article {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+    }
+
+    a {
+        font-size: 150%;
+        text-shadow: @text-shadow;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        // border: 2px solid @black;
+        .border-radius(50%);
+
+        &:hover {
+            span {
+                .transform(translateY(-50%), scale3d(1.1, 1.1, 1.1));
+            }
+        }
+    }
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: @gutter;
+        right: @gutter;
+        .transition(transform .4s);
+        .transform(translateY(-50%), scale3d(1, 1, 1));
+    }
+}
+*/
+
+// .section-rects .pure-g {
+//     margin: 0 -@gutter;
+// }
+
+.section-upcoming {
+    color: @bg;
+    background-color: @bg-2;
+
+    /*
+    .event-rect {
+        padding: @gutter 0;
+    }
+    */
+}
+
+.section-upcoming, .section-pasts {
+    .pure-g {
+        margin: 0 -@gutter;
+    }
+}
+
+.event-rect {
+    padding: @gutter;
+
+    a {
+        display: block;
+        // color: #fff;
+        text-decoration: none;
+        // text-shadow: @text-shadow2;
+        width: 100%;
+        height: 0;
+        padding-bottom: 64%;
+        margin-bottom: 3em;
+        position: relative;
+    }
+
+    span {
+        display: inline-block;
+        margin: .5em .5em 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+}

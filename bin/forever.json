@@ -1,0 +1,7 @@
+{
+    "uid": "tec-website",
+    "append": true,
+    "watch": true,
+    "script": "bin/www",
+    "args": ["-p"]
+}

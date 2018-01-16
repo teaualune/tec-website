@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    .section-page.section-contact: .container
+        h2 臺大創意創業中心 Taidah Entreprenuership Center
+        //- .table: table.pure-table: tbody
+            tr
+        small 電話
+        p 02-3366-9327
+            //- tr
+        small 傳真
+        p 02-3366-9317
+            //- tr
+        small Email
+        p: a(href="mailto:ntutec@ntu.edu.tw") ntutec@ntu.edu.tw
+            //- tr
+        small 地址
+        p 100 台北市中正區思源街 18 號   台大水源校區思源樓 4 樓
+            //- tr
+        small 交通方式
+        p
+            | 捷運：搭乘新店線至公館站，4號出口。往思源街與汀州路口方向，步行約五分鐘。
+            br
+            | 公車：0南、1、52、74、109、208、236、251、252、253、254、278、280、284、290、311、505、530、606、642、643、644、648、660、668、671、672、673、675、676、849、895、907、藍28、棕11、棕12、棕22、綠11、綠13、 小30、景美-榮總、敦化幹線、懷恩專車S31，至捷運公館站下車。
+
+    .section-page.section-map: .container
+        iframe(src=googleMapUrl)
+
+block stylesheets
+    | <style type="text/css">
+    include:less(compress=true) ../public/stylesheets/contact.less
+    | </style>

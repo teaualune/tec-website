@@ -1,0 +1,42 @@
+@import "./variables.less";
+
+.section-contact {
+
+    small {
+        color: @black;
+
+        + p {
+            margin: .5em 0 1.5em;
+        }
+    }
+}
+
+.section-map {
+    height: 75%;
+    max-height: 350px;
+
+    @media @sm {
+        max-height: 400px;
+    }
+
+    @media @md {
+        max-height: 450px;
+    }
+
+    @media @lg {
+        max-height: 500px;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    iframe {
+        outline: 0;
+        border: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    padding-bottom: 50px;
+}

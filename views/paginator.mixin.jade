@@ -1,0 +1,16 @@
+mixin paginator (pagination, path)
+    .paginator.pure-g
+        if pagination.previous
+            .pure-u: a.pure-button(href=path + '?page=' + (pagination.currentPage - 1))
+                i.fa.fa-chevron-left
+                | &nbsp;上一頁
+        each page in pagination.pages
+            .pure-u
+                if page === pagination.currentPage
+                    a.pure-button.pure-button-disabled= page
+                else
+                    a.pure-button(href=path + '?page=' + page)= page
+        if pagination.next
+            .pure-u: a.pure-button(href=path + '?page=' + (pagination.currentPage + 1))
+                | 下一頁&nbsp;
+                i.fa.fa-chevron-right

@@ -1,0 +1,78 @@
+include ./carousel.mixin.jade
+include ./column.mixin.jade
+
+extends layout
+
+block content
+    if carousel && carousel.length
+        +renderCarousel(carousel)
+
+    //- .section-banner.banner1: .container
+        .img-banner(style="background-image:url(\"/images/banner1.jpg\");"): .smoke
+            .container
+                h1= banner1.title
+                | !{banner1.desc}
+
+    .section-page.section-news: .container
+        //- h2.tec-heading 最新消息
+        ul.pure-g
+            li.pure-u.section-news-title
+                h2 最新消息
+                img(src="/images/news-title.svg")
+            each n in news
+                li.pure-u.clearfix
+                    - var href = '/news/' + n.slug;
+                    a(href=href): img(src=n.imgSrc(0.3), style=n.objectPosition())
+                    h4: a(href=href)= n.title
+                    p= n.brief
+                    a.hollow-button(href=href) more
+
+    .section-page.section-activities: .container
+        h2 創創中心活動
+        ul.pure-g
+            each e in events
+                li.pure-u: a(href="/events/" + e.slug)
+                    img(src=e.imgSrc(0.5), style=e.objectPosition())
+                    p= e.title
+        .triangle
+
+    if columns && columns.length
+        .section-page.section-columns: .container
+            +column(columns[0])
+
+    if banner
+        .section-banner.banner2: .container
+            .img-banner(style=banner.background())
+                if hasBannerContent
+                    .smoke: .container
+                        h1= banner.title
+                        h3= banner.subTitle
+                        | !{banner.description}
+        //- .img-banner(style="background-image:url(\"/images/banner2.jpg\");"): .smoke
+            .container
+                h1= banner2.title
+                h3= banner2.subTitle
+                | !{banner2.desc}
+
+block scripts
+    script(type="text/javascript", src="/lib/slick-carousel/slick/slick.min.js")
+    script(type="text/javascript")
+        :uglify-js
+            $('#carousel').slick({
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                dots: true,
+                lazyLoad: 'progressive',
+                mobileFirst: true,
+                respondTo: 'slider',
+                pauseOnHover: false
+            });
+
+block stylesheets
+    | <style type="text/css">
+    include:less(compress=true) ../public/lib/slick-carousel/slick/slick.css
+    include:less(compress=true) ../public/lib/slick-carousel/slick/slick-theme.css
+    include:less(compress=true) ../public/stylesheets/slides.less
+    include:less(compress=true) ../public/stylesheets/index.less
+    | </style>

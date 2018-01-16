@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .section-page: .container
+        h1.tec-heading= post.title
+        if post.author
+            p 文/ #{post.author}
+        - var postImage = post.imgSrc();
+        if postImage
+            img.cover-image(src=postImage, style=post.objectPosition())
+        p= post._.date.format('YYYY/MM/DD')
+        | !{post.content}
+
+block stylesheets
+    | <style type="text/css">
+    include:less(compress=true) ../public/stylesheets/post.less
+    | </style>

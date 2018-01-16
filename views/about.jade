@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    .section-page.section-about: .container
+        h2.tec-heading About
+        .pure-g: .pure-u-1.pure-u-md-4-5
+            p 臺大中程發展計畫中，新倡議「創意創業」作為臺大重要目標。以「建構臺大創業園區，提昇臺大師生的產學合作與創業動能，使創業成為臺大在亞洲大學圈的獨特競爭優勢」作為願景。據此，臺大創意創業中心於2014年底成立，以建立臺大師生創業的機制及生態環境為目標。現由臺大國企所李吉仁教授擔任主任、綜理中心業務。
+            p 創業生態系統包括潛在創業家的啟發教育、提供驗證創業概念之獎勵金、產品或服務之實作、規劃商業模式等，以及登記成立公司的不同環節，在各階段中，臺大創創中心期許自身提供師生各種能量實踐創業：臺大車庫、種子基金、提供共同工作空間及草創資金；事業轉化期，則以加速器協助新創快速解決財務、會計、法律等專業議題。由臺大創創中心作為軸心，同時向內、外整合連結各類資源，對內提供人脈網絡支持臺大創業團隊，對外優化產學合作機制，幫助團隊事業起飛，形成活絡的有機創業生態系統。
+    .section-page.section-organization: .container
+        h2.tec-heading Organization
+        .organization: img(src="/images/organization-w.png", name="organization", usemap="#organization-map")
+        map(name="organization-map")
+            //- organization-w.png:
+            //- image size is 601 x 551
+            //- 1: 438,52,544,108, http://ntuvp.ntu.edu.tw/vpforacademic.aspx
+            area(shape="rect", coords="438,52,544,108", href="http://ntuvp.ntu.edu.tw/vpforacademic.aspx", target="_blank")
+            //- 2: 246,226,352,282, http://exp.management.ntu.edu.tw/zh-TW/IB/teachers/185
+            area(shape="rect", coords="246,226,352,282", href="http://exp.management.ntu.edu.tw/zh-TW/IB/teachers/185", target="_blank")
+            //- organization.png:
+                //- image size is 398 x 398
+                //- 1: 295,18,385,65, http://ntuvp.ntu.edu.tw/vpforacademic.aspx
+                area(shape="rect", coords="295,18,385,65", href="http://ntuvp.ntu.edu.tw/vpforacademic.aspx", target="_blank")
+                //- 2: 153,155,238,202, http://exp.management.ntu.edu.tw/zh-TW/IB/teachers/185
+                area(shape="rect", coords="153,155,238,202", href="http://exp.management.ntu.edu.tw/zh-TW/IB/teachers/185", target="_blank")
+
+block scripts
+    script(type="text/javascript")
+        include ../node_modules/image-map-resizer/js/imageMapResizer.min.js
+    script(type="text/javascript")
+        :uglify-js
+            $('map').imageMapResize();
+
+block stylesheets
+    | <style type="text/css">
+    include:less(compress=true) ../public/stylesheets/about.less
+    | </style>

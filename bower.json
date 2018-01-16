@@ -1,0 +1,9 @@
+{
+  "name": "tec-website",
+  "version": "0.0.0",
+  "dependencies": {
+    "font-awesome": "~4.3.0",
+    "jquery": "~2.1.4",
+    "slick-carousel": "~1.5.8"
+  }
+}

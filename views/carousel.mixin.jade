@@ -1,0 +1,13 @@
+mixin renderCarousel(carousel)
+    .section-panorama.section-carousel: .container
+        #carousel.carousel
+            each c in carousel
+                .carousel-item
+                     if c.link && c.link.length
+                        a.img-panorama(style=c.background(), href=c.link)
+                            if c.title && c.title.length
+                                .carousel-desc= c.title
+                     else
+                        .img-panorama(style=c.background())
+                            if c.title && c.title.length
+                                .carousel-desc= c.title

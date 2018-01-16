@@ -1,0 +1,18 @@
+include ./column.mixin.jade
+include ./paginator.mixin.jade
+
+extends layout
+
+block content
+    .section-page.section-columns: .container
+        h1.tec-heading 創創中心專欄
+        each n in pagination.results
+            +column(n)
+        if pagination.pages.length > 1
+            +paginator(pagination, '/columns')
+
+block stylesheets
+    | <style type="text/css">
+    include:less(compress=true) ../public/stylesheets/news.less
+    | .column{margin:60px auto;}
+    | </style>

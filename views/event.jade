@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .section-page: .container
+        h2.tec-heading= event.title
+        img.cover-image(src=event.imgSrc(), style=event.objectPosition())
+        if event.external
+            h4.align-center: a(href=event.external) 前往活動頁面
+        p 活動日期：#{event._.date.format('YYYY/MM/DD')}
+        | !{event.content}
+
+block stylesheets
+    | <style type="text/css">
+    include:less(compress=true) ../public/stylesheets/post.less
+    | </style>
